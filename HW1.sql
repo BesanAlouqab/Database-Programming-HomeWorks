@@ -6,12 +6,12 @@ GROUP BY Customer_id;
 1.2
 SELECT C.name 
 FROM Customers C JOIN Orders O 
-ON C.Customer_id=O.costomer_id
+ON C.Customer_id=O.Customer_id
 GROUP BY C.Customer_id ,C.name
 having COUNT(O.order_id)>(SELECT AVG(order_count)
                           FROM (SELECT COUNT(order_id)AS order_count
                                  FROM Orders 
-                                 GROUP BY customer_id) AS T ));
+                                 GROUP BY customer_id) T ));
 
 1.3
 create index idx_customer
@@ -32,9 +32,9 @@ ROLLBACK;
 END;
 
 1.5
-Atomicity:Every transaction will be executed with all its parts or Rolledback it can't be seperated.
-Consistency:Every transaction keeps the DB correct and consistent before and after its excution.
-Isolation:Every transaction works independently from other transactions and won't be effected by uncommitted changes bu other users.
+Atomicity:Every transaction will be executed with all its parts or Rolledback it can't be separated.
+Consistency:Every transaction keeps the DB correct and consistent before and after its execution.
+Isolation:Every transaction works independently from other transactions and won't be affected by uncommitted changes by other users.
 Durability:Once the commit is executed , it will be saved in the DB even in case of power failure;
 
 
