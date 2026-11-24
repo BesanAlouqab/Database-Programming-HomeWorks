@@ -5,7 +5,7 @@ GROUP BY Customer_id;
 
 1.2
 SELECT C.name 
-FROM Customer AS C JOIN Orders AS O 
+FROM Customers C JOIN Orders O 
 ON C.Customer_id=O.costomer_id
 GROUP BY C.Customer_id ,C.name
 having COUNT(O.order_id)>(SELECT AVG(order_count)
@@ -32,10 +32,10 @@ ROLLBACK;
 END;
 
 1.5
-Atomicity:Every transaction will be excuted with all its parts or Rolledback it can't be seperated.
+Atomicity:Every transaction will be executed with all its parts or Rolledback it can't be seperated.
 Consistency:Every transaction keeps the DB correct and consistent before and after its excution.
-Isolation:Every transaction works indepndantly from other transacstios and won't be effected by uncommitted changes bu other users.
-Durability:Once the commit is excuted , it will be saved in the DB even in case of power failure;
+Isolation:Every transaction works independently from other transactions and won't be effected by uncommitted changes bu other users.
+Durability:Once the commit is executed , it will be saved in the DB even in case of power failure;
 
 
 2.1
